@@ -9,14 +9,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Git Repo Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        primaryColor: Colors.black,
         primaryColorDark: Colors.black,
-        primaryColorLight: Colors.black54,
-        backgroundColor: Colors.white,
+        accentColor: Colors.orange,
       ),
-      home: GitHistory(title: 'Git Repo'),
+      home: GitHistory(title: 'Git Commit History'),
     );
   }
 }

@@ -34,21 +34,24 @@ class _GitHistoryState extends State<GitHistory> {
       appBar: AppBar(
         title: Text(
           widget.title,
-          style: TextStyle(
-            color: Theme.of(context).backgroundColor,
-          ),
         ),
-        backgroundColor: Theme.of(context).primaryColorLight,
         automaticallyImplyLeading: false,
       ),
-      body: StreamBuilder(
-        stream: _bloc.viewState,
-        builder: (context, snapshot) {
-          return StateHandler(
-            body: _listDataView(snapshot?.data?.data ?? []),
-            viewState: snapshot?.data,
-          );
+      body: RefreshIndicator(
+        onRefresh: () {
+          _bloc.getCommitHistory();
+
+          return Future.value(null);
         },
+        child: StreamBuilder(
+          stream: _bloc.viewState,
+          builder: (context, snapshot) {
+            return StateHandler(
+              body: _listDataView(snapshot?.data?.data ?? []),
+              viewState: snapshot?.data,
+            );
+          },
+        ),
       ),
     );
   }
