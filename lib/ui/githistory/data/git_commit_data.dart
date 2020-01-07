@@ -1,4 +1,4 @@
-class GitData {
+class GitCommitData {
   String sha;
   String nodeId;
   Commit commit;
@@ -9,7 +9,7 @@ class GitData {
   Author committer;
   List<Parents> parents;
 
-  GitData(
+  GitCommitData(
       {this.sha,
       this.nodeId,
       this.commit,
@@ -20,7 +20,7 @@ class GitData {
       this.committer,
       this.parents});
 
-  GitData.fromJson(Map<String, dynamic> json) {
+  GitCommitData.fromJson(Map<String, dynamic> json) {
     sha = json['sha'];
     nodeId = json['node_id'];
     commit =
@@ -292,14 +292,14 @@ class Parents {
 }
 
 class ApiData {
-  List<GitData> gitData;
+  List<GitCommitData> gitData;
 
   ApiData({this.gitData});
 
   ApiData.fromJson(List<dynamic> data) {
-    gitData = new List<GitData>();
+    gitData = new List<GitCommitData>();
     data.forEach((v) {
-      gitData.add(new GitData.fromJson(v));
+      gitData.add(new GitCommitData.fromJson(v));
     });
   }
 }

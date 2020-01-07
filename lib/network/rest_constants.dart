@@ -1,3 +1,5 @@
 class RestConstants {
-  static const String BASE_URL = "http://203.125.153.221/roader/";
+  static const String BASE_URL = "https://api.github.com/";
+  static const String GET_GIT_COMMIT_HISTORY =
+      "repos/afifPathan/Git-List/commits";
 }

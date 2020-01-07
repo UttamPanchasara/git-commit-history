@@ -5,7 +5,7 @@ class AppException implements Exception {
   AppException([this._message, this._prefix]);
 
   String toString() {
-    return "${_prefix ?? ""}$_message";
+    return "${_prefix ?? ""}${_message ?? ""}";
   }
 }
 
@@ -29,4 +29,8 @@ class InvalidInputException extends AppException {
 class NoInternetException extends AppException {
   NoInternetException([String message])
       : super(message, "No internet connection found!");
+}
+
+class ServerConnectionException extends AppException {
+  ServerConnectionException([String message]) : super(message, '');
 }

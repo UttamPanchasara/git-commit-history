@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:git_demo/ui/Git.dart';
+
+import 'ui/githistory/git_history.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,11 +12,11 @@ class MyApp extends StatelessWidget {
       title: 'Git Repo Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primaryColorDark: Colors.black,
-          primaryColorLight: Colors.black54,
-          backgroundColor: Colors.white,
+        primaryColorDark: Colors.black,
+        primaryColorLight: Colors.black54,
+        backgroundColor: Colors.white,
       ),
-      home: Git(title: 'Git Repo'),
+      home: GitHistory(title: 'Git Repo'),
     );
   }
 }
