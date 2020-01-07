@@ -82,10 +82,12 @@ class CommitList extends StatelessWidget {
               child: Wrap(
                 crossAxisAlignment: WrapCrossAlignment.center,
                 children: <Widget>[
-                  Image.network(
-                    _getAvatarUrl(value.author),
-                    height: 18.0,
+                  FadeInImage(
+                    placeholder: AssetImage('assets/images/ic_placeholder.png'),
+                    image: NetworkImage(_getAvatarUrl(value.author)),
                     width: 18.0,
+                    height: 18.0,
+                    fit: BoxFit.contain,
                   ),
                   SizedBox(
                     width: 5.0,
@@ -94,7 +96,8 @@ class CommitList extends StatelessWidget {
                   SizedBox(
                     width: 5.0,
                   ),
-                  _listText("commited ${getDate(value.commit.committer.date, 'd MMM y')}",
+                  _listText(
+                      "commited ${getDate(value.commit.committer.date, 'd MMM y')}",
                       Colors.black54.withOpacity(0.4)),
                 ],
               ),
@@ -122,7 +125,7 @@ class CommitList extends StatelessWidget {
     if (author != null) {
       return author?.avatarUrl ?? '';
     }
-    return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe76emZ89ZZEgUHhtbnCPlp9NrQAp2-5NuVSmTCl_u6iqA0mgn&s';
+    return '';
   }
 
   String _getAuthorName(Author author) {
