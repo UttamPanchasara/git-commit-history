@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:git_demo/ui/widgets/custom_border_button.dart';
-import 'package:intl/intl.dart';
+import 'package:git_demo/utils/app_utils.dart';
 
 import 'data/git_commit_data.dart';
 
@@ -94,8 +94,7 @@ class CommitList extends StatelessWidget {
                   SizedBox(
                     width: 5.0,
                   ),
-                  _listText(
-                      "Commited On ${_getDate(value.commit.committer.date)}",
+                  _listText("commited ${getDate(value.commit.committer.date, 'd MMM y')}",
                       Colors.black54.withOpacity(0.4)),
                 ],
               ),
@@ -131,16 +130,5 @@ class CommitList extends StatelessWidget {
       return author?.login ?? '';
     }
     return '';
-  }
-
-  _getDate(String date) {
-    if (date != null) {
-      var day = new DateFormat.d("en_US").format(DateTime.parse(date));
-      var moth = new DateFormat.MMM("en_US").format(DateTime.parse(date));
-      var year = new DateFormat.y("en_US").format(DateTime.parse(date));
-
-      return "$day $moth $year";
-    }
-    return "";
   }
 }
