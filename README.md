@@ -18,3 +18,6 @@ samples, guidance on mobile development, and a full API reference.
 - Once you setup everything for Flutter you can clone this repo in order to run this application.
 - After completion of setup, You simply needs to run the application.
 - On successful build run, You will see the commit history of current repo.
+
+
+<img src="https://github.com/UttamPanchasara/git-commit-history/blob/master/gif/overview-gif.gif" height="600" alt="Screenshot"/>
